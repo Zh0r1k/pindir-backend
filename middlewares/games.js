@@ -119,4 +119,12 @@ const checkIfUsersAreSafe = async (req, res, next) => {
             .send({ message: "Нельзя удалять пользователей или добавлять больше одного пользователя" });
     }}
 
-module.exports = { findAllGames, createGame, findGameById, updateGame, deleteGame, checkIsGameExists, checkEmptyFields, checkIfCategoriesAvaliable, checkIfUsersAreSafe }
+const checkIsVoteRequest = async (req, res, next) => {
+  if (Object.keys(req.body).length === 1 && req.body.users) {
+    req.isVoteRequest = true;
+  }
+  next();
+}; 
+
+
+module.exports = { findAllGames, createGame, findGameById, updateGame, deleteGame, checkIsGameExists, checkEmptyFields, checkIfCategoriesAvaliable, checkIfUsersAreSafe, checkIsVoteRequest }
