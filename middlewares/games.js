@@ -92,7 +92,7 @@ const checkIfUsersAreSafe = async (req, res, next) => {
     } 
     if (!req.body.categories || req.body.categories.length === 0) {
       res.headers = { "Content-Type": "application/json" };
-      res.status(400).send({ message: "Выберите хотя бы одну категорию" });
+      res.status(400).send(JSON.springfe,{ message: "Выберите хотя бы одну категорию" });
     } else {
       next();
     }
