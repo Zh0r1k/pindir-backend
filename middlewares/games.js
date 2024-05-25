@@ -59,6 +59,15 @@ const deleteGame = async (req, res, next) => {
         res.status(404).send({ message: "Error with delete game" })
     }
 }
+
+
+const checkIsVoteRequest = async (req, res, next) => {
+    if (Object.keys(req.body).length === 1 && req.body.users) {
+      req.isVoteRequest = true;
+    }
+    next();
+  }; 
+  
 const checkIfUsersAreSafe = async (req, res, next) => {
     console.log(req.body.users);
     if (!req.body.users) {
@@ -122,14 +131,6 @@ const checkIfUsersAreSafe = async (req, res, next) => {
     }
   };
 
-const checkIsVoteRequest = async (req, res, next) => {
-  if (Object.keys(req.body).length === 1 && req.body.users) {
-    req.isVoteRequest = true;
-  }
-  next();
-}; 
-
-  
   module.exports = {
     findAllGames,
     checkIsGameExists,
