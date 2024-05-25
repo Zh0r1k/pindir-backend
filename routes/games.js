@@ -8,7 +8,8 @@ const {
     checkIfUsersAreSafe,
     updateGame,
     deleteGame,
-    checkEmptyFields
+    checkEmptyFields,
+    checkIsVoteRequest
   } = require("../middlewares/games.js");
 
 const { sendAllGames, sendGameCreated, sendGameUpdated, sendGameDeleted, sendGameById} = require('../controllers/games');
