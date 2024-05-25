@@ -43,8 +43,8 @@ const updateUser = async (req, res, next) => {
 
 
 const checkEmptyNameAndEmail = async (req, res, next) => {
-    if (!req.body.username || !req.body.email) {
-        res.status(400).send({ message: "Введите имя и email" });
+    if (!req.body.username || !req.body.email || !req.body.password) {
+        res.status(400).send({ message: "Введите имя, email и пароль" });
     } else {
         next();
     }

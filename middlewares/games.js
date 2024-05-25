@@ -104,6 +104,18 @@ const checkEmptyFields = async (req, res, next) => {
         }
     };
 
+    const checkIsCategoryExists = async (req, res, next) => {
+        const isInArray = req.categoriesArray.find((category) => {
+          return req.body.name === category.name;
+        });
+        if (isInArray) {
+          res.setHeader("Content-Type", "application/json");
+              res.status(400).send(JSON.stringify({ message: "Категория с таким названием уже существует" }));
+        } else {
+          next();
+        }
+      };
+
 const checkIfUsersAreSafe = async (req, res, next) => {
     console.log(req.body.users);
     if (!req.body.users) {
@@ -127,4 +139,4 @@ const checkIsVoteRequest = async (req, res, next) => {
 }; 
 
 
-module.exports = { findAllGames, createGame, findGameById, updateGame, deleteGame, checkIsGameExists, checkEmptyFields, checkIfCategoriesAvaliable, checkIfUsersAreSafe, checkIsVoteRequest }
+module.exports = { findAllGames, createGame, findGameById, updateGame, deleteGame, checkIsGameExists, checkEmptyFields, checkIfCategoriesAvaliable, checkIsCategoryExists, checkIfUsersAreSafe, checkIsVoteRequest }
