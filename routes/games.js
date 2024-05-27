@@ -27,6 +27,7 @@ gamesRouter.post(
   "/games",
   findAllGames,
   checkIsGameExists,
+  checkIsVoteRequest,
   checkIfCategoriesAvaliable,
   checkEmptyFields,
   checkAuth,
