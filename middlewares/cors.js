@@ -1,6 +1,6 @@
 const allowedCors = [
-  'http://frontend-zhuravlevilya.nomoredomainswork.ru',
   'https://frontend-zhuravlevilya.nomoredomainswork.ru',
+  'http://frontend-zhuravlevilya.nomoredomainswork.ru',
   'http://localhost:3000'
 ];
 function cors(req, res, next) {
