@@ -1,4 +1,4 @@
-const allowedCors = ["localhost:3000",
+const allowedCors = ["http://localhost:3000",
   "https://frontend-zhuravlevilya.nomoredomainswork.ru",
   "http://frontend-zhuravlevilya.nomoredomainswork.ru"];
 
